@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        
+        <div>
+            <input type="text" name="message" id="message" placeholder="message">
+        </div>
+        <div>
+            <input type="text" name="username" id="username" style="display:none;">
+        </div>
+        <div>
+            <button type="submit">Send msg</button>
+        </div>
+        <div>
+            <object data="/message.txt">
+                
+            </object>
+        </div>
+    </form>
+    <script>
+        const username = document.querySelector('#username')
+        let localUsername = localStorage.getItem('username')
+        username.value = localUsername
+    </script>
+</body>
+</html>

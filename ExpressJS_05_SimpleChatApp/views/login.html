@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <form id="formID" action="/" method="POST">
+        <div>
+            <input type="text" name="username" id="username" placeholder="username">
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+
+    </form>
+    <script>
+        const form = document.querySelector('#formID')
+        const input = document.querySelector('#username')
+
+        form.addEventListener('submit', onSubmit)
+
+        function onSubmit(e) {
+            localStorage.setItem('username', input.value)
+        }
+    </script>
+</body>
+
+</html>
