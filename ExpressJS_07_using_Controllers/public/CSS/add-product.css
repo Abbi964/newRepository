@@ -1,0 +1,35 @@
+.product-form{
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+    padding: 2em;
+    border: 3px solid rgb(212, 167, 108);
+    border-radius: 1.5em;
+}
+
+.form-control input {
+    border: 2px solid rgb(249, 210, 159);
+    border-radius: 0.4em;
+    width: 100%;
+    font: inherit;
+    padding: 0.3em;
+    margin: 0.5em 0;
+}
+
+input:focus {
+    border: 2px solid rgb(158, 117, 65);
+    outline: none;
+}
+
+button {
+    padding: 0.4em 1.6em;
+    margin-top: 0.4em;
+    background-color: #9ef5a2;
+    border-radius: 0.4em;
+    font-weight: bold; 
+    font-family: inherit;
+}
+button:hover,
+button:active{
+    background-color: #68f76f;
+}
