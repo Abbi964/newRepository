@@ -1,0 +1,66 @@
+const db = require('../util/database')
+
+const Cart = require('./cart')
+
+module.exports = class Product {
+  constructor(id,title, imageUrl, description, price) {
+    this.id = id,
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.description = description;
+    this.price = price;
+  }
+
+  save() {
+    // getProductsFromFile(products => {
+    //   if(this.id){    // if product already exist
+    //     const existingProductIndex = products.findIndex(prod => prod.id === this.id)
+    //     const updatedProducts = [...products];
+    //     updatedProducts[existingProductIndex] = this;
+    //     fs.writeFile(p, JSON.stringify(updatedProducts), err => {
+    //       console.log(err);
+    //     });
+    //   }
+    //   else{
+    //     // giving a random id
+    //   this.id = Math.random().toString();
+    //   products.push(this);
+    //   fs.writeFile(p, JSON.stringify(products), err => {
+    //     console.log(err);
+    //   });
+    //   }
+      
+    // });
+    return db.execute('INSERT INTO products(title , price, imageUrl, description) VALUES(?, ?, ?, ?)',[this.title, this.price, this.imageUrl, this.description])
+  }
+
+  static deleteById(id){
+    // getProductsFromFile((products)=>{
+    //   // finding product in products to delete later from cart
+    //   const product = products.find(prod => prod.id === id);
+    //   // filtering all products which do not have id = given id
+    //   const updatedProducts = products.filter(prod => prod.id !== id);
+    //   fs.writeFile(p,JSON.stringify(updatedProducts),(err)=>{
+    //     // if no error then removing from cart also
+    //     if(!err){
+    //       Cart.deleteProduct(id,product.price)
+    //     }
+    //   })
+
+    // })
+    return db.execute('DELETE FROM products WHERE id =?',[id])
+  }
+
+  static fetchAll() {
+    // getProductsFromFile(cb);
+    return db.execute('SELECT * FROM products');
+  }
+
+  static findById(id){
+      // getProductsFromFile(products=>{
+      //   const product = products.find(p => p.id == id);
+      //   cb(product)
+      // })
+     return db.execute('SELECT * FROM products WHERE id =?',[id])
+  }
+};
